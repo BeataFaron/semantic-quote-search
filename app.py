@@ -10,7 +10,7 @@ st.set_page_config(page_title="Semantic Quote Search", layout="centered")
 # Load your data and create FAISS index
 @st.cache_data
 def load_data():
-    df = pd.read_csv("quotes_sample_500_cleaned.csv")
+    df = pd.read_csv("quotes-wisdom.csv")
     df = df.dropna(subset=["quote"]).reset_index(drop=True)
 
     model = SentenceTransformer('all-MiniLM-L6-v2')
