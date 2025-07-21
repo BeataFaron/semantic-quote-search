@@ -1,4 +1,3 @@
-
 import streamlit as st
 import pandas as pd
 import faiss
@@ -7,11 +6,12 @@ from sentence_transformers import SentenceTransformer
 
 st.set_page_config(page_title="Semantic Quote Search", layout="centered")
 
-# Load your data and create FAISS index
+# Load data and create FAISS index
 @st.cache_data
 def load_data():
     df = pd.read_csv("quotes-wisdom.csv")
     df = df.dropna(subset=["quote"]).reset_index(drop=True)
+    df.rename(columns={"theme/tag": "theme"}, inplace=True)  # Normalize column name
 
     model = SentenceTransformer('all-MiniLM-L6-v2')
     quotes = df['quote'].tolist()
@@ -25,6 +25,14 @@ def load_data():
 
 df, model, index, embeddings = load_data()
 
+# --- Optional: Debug info (you can remove later)
+st.write("✅ Dataset preview:")
+st.dataframe(df.head(3))
+
+st.write("✅ Columns:")
+st.write(df.columns.tolist())
+# ---
+
 # UI Layout
 st.title("🔍 Semantic Quote Search")
 st.write("Search through inspirational business quotes by meaning.")
@@ -32,7 +40,11 @@ st.write("Search through inspirational business quotes by meaning.")
 # Sidebar filters
 with st.sidebar:
     st.header("🔎 Filters")
-    theme_filter = st.selectbox("Filter by theme:", ["All"] + sorted(df['theme'].dropna().unique().tolist()))
+    if 'theme' in df.columns:
+        theme_filter = st.selectbox("Filter by theme:", ["All"] + sorted(df['theme'].dropna().unique().tolist()))
+    else:
+        st.warning("Column 'theme' not found. Filter disabled.")
+        theme_filter = "All"
 
 # Main input
 query = st.text_input("Enter your question or topic:")
