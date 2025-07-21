@@ -1,4 +1,4 @@
-# Semantic Quote Search – Business Wisdom Finder 🔍🧠
+# Semantic Quote Search – Business Wisdom Finder 🔍
 
 This project demonstrates a semantic search engine for inspirational quotes from business leaders and innovators. It uses `sentence-transformers` and `FAISS` to match user queries to meaningful quotes – going beyond simple keyword search.
 
