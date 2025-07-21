@@ -25,12 +25,12 @@ def load_data():
 
 df, model, index, embeddings = load_data()
 
-# --- Optional: Debug info (you can remove later)
-st.write("✅ Dataset preview:")
-st.dataframe(df.head(3))
+# --- Optional: Debug info
+# st.write("✅ Dataset preview:")
+# st.dataframe(df.head(3))
 
-st.write("✅ Columns:")
-st.write(df.columns.tolist())
+# st.write("✅ Columns:")
+# st.write(df.columns.tolist())
 # ---
 
 # UI Layout
