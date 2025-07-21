@@ -1,85 +1,60 @@
-# 🔍 Semantic Quote Search
+# Semantic Quote Search – Business Wisdom Finder 🧠🔍
 
-A web-based semantic search app built with **Streamlit**, **FAISS**, and **Sentence Transformers**. Users can enter natural language queries and retrieve the most relevant business quotes by meaning, not just keywords.
-
----
-
-## 🚀 Demo
-
-**Coming Soon:** [Live App on Streamlit Cloud](https://streamlit.io/cloud)
+This project enables semantic search over quotes from business leaders and innovators. It combines scraping, metadata tagging, sentence embeddings, and FAISS indexing to allow fast, meaningful quote retrieval based on user queries.
 
 ---
 
-## 📁 Project Structure
+## 📘 Dataset
 
-```
-semantic-quote-search/
-├── app.py                      # Streamlit app code
-├── quotes_sample_500_cleaned.csv  # Dataset of business quotes
-├── requirements.txt           # Dependencies
-├── README.md                  # Project overview (this file)
-```
+The data is public and available on Kaggle:  
+👉 [Wisdom from Business Leaders and Innovators](https://www.kaggle.com/datasets/beatafaron/wisdom-from-business-leaders-and-innovators)
 
----
-
-## 📚 Features
-
-* 🔍 Semantic search powered by sentence embeddings
-* ⚡ Fast vector similarity using FAISS
-* 🎨 Clean UI built with Streamlit
-* 🧠 Contextual understanding, not just keyword matching
-* 🧰 Optional filters by theme or metadata (if present)
+It includes:
+- 2,500+ real quotes
+- Metadata: tags (themes), decade, gender, region, occupation
+- Cleaned and deduplicated content
 
 ---
 
-## 🧠 Tech Stack
+## 🧪 Project Structure
 
-| Tool/Library          | Purpose                             |
-| --------------------- | ----------------------------------- |
-| Streamlit             | UI / App interface                  |
-| Sentence Transformers | Embedding generation (MiniLM model) |
-| FAISS                 | Fast vector indexing + similarity   |
-| Pandas                | Data handling                       |
-| NumPy                 | Vector math                         |
+| Notebook | Description |
+|----------|-------------|
+| **01** – Scraping Quotes | Quote scraping (Wikiquote), tag extraction, cleaning |
+| **02** – Semantic Search with FAISS | Sentence embedding, FAISS index creation, top-k search |
+| **03** – Final Demo (Kaggle) | Interactive demo with metadata filters and query examples |
 
 ---
 
-## 💡 How It Works
+## 🚀 What It Does
 
-1. Quotes are embedded into high-dimensional vectors.
-2. User query is also embedded and normalized.
-3. FAISS finds the most similar vectors using cosine similarity.
-4. Results are shown in ranked order with optional filters.
-
----
-
-## 📦 Installation & Run Locally
-
-```bash
-# Clone repo and install dependencies
-pip install -r requirements.txt
-
-# Run the app
-streamlit run app.py
-```
+- Embeds quotes using `sentence-transformers` (MiniLM)
+- Indexes embeddings with `FAISS` for ultra-fast retrieval
+- Supports filtering by metadata (e.g., only female innovators in the 1980s)
+- Matches user queries based on meaning (not keywords)
 
 ---
 
-## ✍️ Author
+## 🧰 Tech Stack
 
-Created by Beata Faron. Built for learning, portfolio, and AI/NLP practice.
-
----
-
-## 📜 License
-
-This project is open-source and licensed under the MIT License.
+`Python`, `Pandas`, `BeautifulSoup`, `SentenceTransformers`,  
+`FAISS`, `scikit-learn`, `Matplotlib`, `Streamlit` (planned)
 
 ---
 
-## 🌟 Future Improvements
+## 📂 Related Links
 
-* Add support for full dataset (2,500 quotes)
-* Support filtering by author/gender/region
-* Host on Hugging Face or Streamlit Cloud
-* Add re-ranking using cross-encoders
+- 📊 [Kaggle Dataset](https://www.kaggle.com/datasets/beatafaron/wisdom-from-business-leaders-and-innovators)  
+- 📘 [Kaggle Notebook – Semantic Quote Search](https://www.kaggle.com/code/beatafaron/semantic-search-tutorial-business-quote-finder)
+
+---
+
+## 👩‍💻 Author
+
+Beata Faron  
+- 💼 [LinkedIn](https://www.linkedin.com/in/beata-faron-24764832/)  
+- 🧠 [Kaggle](https://www.kaggle.com/beatafaron)
+
+---
+
+⭐ If you found this useful, feel free to star the repo and connect!
