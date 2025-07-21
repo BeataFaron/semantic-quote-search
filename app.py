@@ -9,7 +9,7 @@ st.set_page_config(page_title="Semantic Quote Search", layout="centered")
 # Load data and create FAISS index
 @st.cache_data
 def load_data():
-    df = pd.read_csv("quotes-wisdom.csv")
+    df = pd.read_csv("data/quotes-wisdom.csv")
     df = df.dropna(subset=["quote"]).reset_index(drop=True)
     df.rename(columns={"theme/tag": "theme"}, inplace=True)  # Normalize column name
 
